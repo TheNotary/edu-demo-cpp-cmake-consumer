@@ -1,10 +1,18 @@
 #include <iostream>
-// #include <my_dep.h>
 #include <my_dep/my_dep.h>
 
-int main()
-{
+int CalculateOurNumber(int theirNumber) {
+    return theirNumber + 100;
+}
+
+int main() {
     int dataFromDependency = my_dep::GetNumber();
-    std::cout << "The number is " << dataFromDependency << std::endl;
+    int ourNumber = CalculateOurNumber(dataFromDependency);
+
+    std::cout
+        << "The number is "
+        << ourNumber
+        << std::endl;
+
     return 0;
 }

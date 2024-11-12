@@ -6,7 +6,8 @@ add_library(${PROJECT_NAME}
 
 add_dependencies(${PROJECT_NAME}
     ${EXTERNAL_PROJECTS}
-    ${EXTERNAL_TEST_PROJECTS})
+    ${EXTERNAL_TEST_PROJECTS}
+)
 
 add_executable(main
     main.cpp
@@ -23,4 +24,6 @@ target_include_directories(main
     ${CMAKE_BINARY_DIR}/ext/include
 )
 
-target_link_libraries(main ${CMAKE_BINARY_DIR}/ext/lib/libmy_dep.a)
+target_link_libraries(main
+    ${CMAKE_BINARY_DIR}/ext/lib/libmy_dep.a
+)
