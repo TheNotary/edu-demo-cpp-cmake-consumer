@@ -1,5 +1,6 @@
 #include <iostream>
-#include <my_dep.h>
+// #include <my_dep.h>
+#include <my_dep/my_dep.h>
 
 int main()
 {
