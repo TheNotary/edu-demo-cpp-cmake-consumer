@@ -2,7 +2,7 @@
 
 This repo is holds the consumer of the sister-demo repo, https://github.com/TheNotary/edu-demo-cpp-cmake-dependency.git
 
-This demo show off CMakes ability to automate the download and build of dependencies.  
+This demo show off CMakes ability to automate the download and build of dependencies.
 
 #### OS Deps
 
@@ -19,6 +19,15 @@ cmake ..
 make -j 8
 
 ./src/main
+```
+
+
+#### Run Tests
+
+```
+cd build
+
+ctest
 ```
 
 

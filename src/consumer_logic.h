@@ -1,0 +1,2 @@
+
+int CalculateOurNumber(int theirNumber);
