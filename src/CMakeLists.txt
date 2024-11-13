@@ -13,17 +13,23 @@ add_executable(main
     main.cpp
 )
 
+# Link the $PROJECT_NAME to the main executable, along with any additional
+# external libraries declared in ext/
 target_link_libraries(main
    # Add libraries here
    ${PROJECT_NAME}
    ${EXTERNAL_LIBRARIES}
 )
 
+# Recursively link all EXTERNAL_PROJECTS' static libraries identified in ext/
+foreach(project ${EXTERNAL_PROJECTS})
+    # Construct the path to the static library or shared library
+    target_link_libraries(main
+        ${CMAKE_BINARY_DIR}/ext/lib/lib${project}.a  # Adjust the extension if needed (e.g., .so, .lib)
+    )
+endforeach()
+
 target_include_directories(main
     PRIVATE
     ${CMAKE_BINARY_DIR}/ext/include
-)
-
-target_link_libraries(main
-    ${CMAKE_BINARY_DIR}/ext/lib/libDemoDependency.a
 )
