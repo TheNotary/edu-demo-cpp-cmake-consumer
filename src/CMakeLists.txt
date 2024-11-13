@@ -10,7 +10,7 @@ add_dependencies(${PROJECT_NAME}
 )
 
 add_executable(main
-    main.cpp
+    ${SRCS}
 )
 
 # Link the $PROJECT_NAME to the main executable, along with any additional
