@@ -26,7 +26,9 @@ make -j 8
 
 ```
 cd build
-
+# Compiles with some memcheck features enabled
+cmake -DCMAKE_CXX_FLAGS="-fsanitize=address" -DCMAKE_C_FLAGS="-fsanitize=address" ..
+make
 ctest
 ```
 
