@@ -5,13 +5,43 @@ on:
 
 jobs:
 
-  build:
-    runs-on:
-        - ubuntu-latest
-        - windows-latest
-    defaults:
-      run:
-        working-directory: ./backend
+  create_release:
+    needs: deploy_builds_to_release
+    runs-on: ubuntu-latest
+    # outputs:
+      # upload_url: ${{ steps.create_release.outputs.upload_url }}
+      # upload_url: ${{ steps.create_empty_release.outputs.upload_url }}
+    steps:
+
+      - run: ls build/src
+
+      - name: Create empty release
+        id: create_empty_release
+        uses: softprops/action-gh-release@v2
+        if: startsWith(github.ref, 'refs/tags/')
+        with:
+          files: |
+            build/src/main
+            build/src/main.exe
+
+      # - name: Create a release
+      #   id: create_release
+      #   uses: actions/create-release@v1
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      #   with:
+      #     tag_name: ${{ github.ref }}
+      #     release_name: Release ${{ github.ref }}
+      #     draft: true
+      #     prerelease: true
+
+
+  deploy_builds_to_release:
+    # needs: create_release
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [windows-latest, ubuntu-latest] # macos-latest,
     steps:
       - name: Checkout Project
         uses: actions/checkout@v4.2.1
@@ -21,3 +51,7 @@ jobs:
 
       - name: Test Project
         uses: threeal/ctest-action@v1.1.0
+
+      - run: ls build/src
+
+
