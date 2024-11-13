@@ -25,5 +25,5 @@ target_include_directories(main
 )
 
 target_link_libraries(main
-    ${CMAKE_BINARY_DIR}/ext/lib/libmy_dep.a
+    ${CMAKE_BINARY_DIR}/ext/lib/libDemoDependency.a
 )
