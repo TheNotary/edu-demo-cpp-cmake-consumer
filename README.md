@@ -1,8 +1,7 @@
 # CMake Consumer/ Dependency Demo
 
-This repo is holds the consumer of the sister-demo repo, https://github.com/TheNotary/edu-demo-cpp-cmake-dependency.git
+This repo demonstrates how to use CMake to fetch and build a dependency from github.  The dependency built can be found [here](https://github.com/TheNotary/edu-demo-cpp-cmake-dependency.git)
 
-This demo show off CMakes ability to automate the download and build of dependencies.
 
 #### OS Deps
 

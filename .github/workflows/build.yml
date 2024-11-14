@@ -44,8 +44,8 @@ jobs:
 
       - run: ls build/src
 
-      - name: Create empty release
-        id: create_empty_release
+      - name: Create release
+        id: create_release
         uses: softprops/action-gh-release@v2
         if: startsWith(github.ref, 'refs/tags/')
         with:
